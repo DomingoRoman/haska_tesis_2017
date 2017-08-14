@@ -1,5 +1,5 @@
 #################
-# Script para Praat
+# Script para Praat v12_2
 
 #### Elegir carpeta de trabajo
 ### cambiar barra / (mac) a \ (otro)
@@ -7,8 +7,7 @@
 directorioOriginal$ = chooseDirectory$: "Elige la carpeta"
 extensionTextGrid$ = ".TextGrid"
 extensionSonido$ = ".wav"
-especificacionSonido$ = directorioOriginal$ + "/*" + extensionSonido$
-
+especificacionSonido$ = directorioOriginal$ + "\*" + extensionSonido$
 
 # Hacer la lista de todos los objetos Sound de esa carpeta
 
@@ -18,6 +17,7 @@ tabla = Create Table with column names: "data", totalSonido, "clase Ninfo sexo p
 ... difIn0_1 difIn0_2 CdeG"
 
 writeInfoLine: "Atenta, Chrissssss"
+
 for iSonido to totalSonido
 	selectObject: listaSonido
 	nombreSonido$ = Get string: iSonido
@@ -37,11 +37,9 @@ for iSonido to totalSonido
 # 2. clase
 	clase$ = right$(nombreSonido$,6)
 	clase$ = left$(clase$,1)
-
 # 3. sexo
 	sexo$ = right$(nombreSonido$,7)
 	sexo$ = left$(sexo$,1)
-
 # 4. Repetición
 
 	paraNumeroRepeticion = largo-8
@@ -93,26 +91,28 @@ etiquetaMarca3_01$ = Get label of point: 1, 3
 
 # etiquetas en el tier 2.
 
-
-##########
+########## dentro del if siguiente
 ##########
 
 if nIntervalosTier2 = 3
+	etiquetaFriccion$ =Get label of interval: 2, 3
+			inicioFriccion = Get start time of interval: 2, 3
+			finalFriccion = Get end time of interval: 2, 3
+			duracionFriccion = finalFriccion-inicioFriccion
+			duracionOclusion = 0
+
+elsif nIntervalosTier2 = 4
 	etiquetaOclusion$ =Get label of interval: 2, 2
 	etiquetaFriccion$ =Get label of interval: 2, 3
-endif
 
-if nIntervalosTier2 = 4
-
-	if etiquetaOclusion$ ="O" or etiquetaOclusion$ ="o" and etiquetaFriccion$ ="F" or etiquetaFriccion$ ="f"
 		inicioOclusion = Get start time of interval: 2, 2
 		finalOclusion = Get end time of interval: 2, 2
 		duracionOclusion = finalOclusion-inicioOclusion
 		inicioFriccion = Get start time of interval: 2, 3
 		finalFriccion = Get end time of interval: 2, 3
 		duracionFriccion = finalFriccion-inicioFriccion
-	endif
 endif
+
 
 #porcentaje de oclusión y fricción
 
