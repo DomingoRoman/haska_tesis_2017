@@ -1,16 +1,5 @@
 #################
 # Script para Praat
-# Función: Obtiene valores:
-#  1. Duración de
-#   a) oclusión
-#   b) fricción
-#   c) porcentaje de fricción respecto de oclusión
-#  2. Cruces por cero (en 20 ms) de la fricativa
-#  3. Centro de gravedad de la fricción
-# Deja una tabla con todos los datos.
-##################
-##################
-
 
 #### Elegir carpeta de trabajo
 ### cambiar barra / (mac) a \ (otro)
@@ -110,7 +99,8 @@ if etiquetaOclusion$ ="O" or etiquetaOclusion$ ="o"
 	inicioOclusion = Get start time of interval: 2, 2
 	finalOclusion = Get end time of interval: 2, 2
 	duracionOclusion = finalOclusion-inicioOclusion
-elsif duracionOclusion = 0
+else 
+	duracionOclusion = 0
 endif
 
 if etiquetaFriccion$ ="F" or etiquetaFriccion$ ="f"
