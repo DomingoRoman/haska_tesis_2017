@@ -66,6 +66,7 @@ for iSonido to totalSonido
 select etiquetaEditando
 
 # verifica numero de tiers, intervalos y puntos por tier
+
 nDeTiers = Get number of tiers
 nPuntosTier1 = Get number of points: 1
 nIntervalosTier2 = Get number of intervals: 2
@@ -92,21 +93,25 @@ etiquetaMarca3_01$ = Get label of point: 1, 3
 
 # etiquetas en el tier 2.
 
-etiquetaOclusion$ =Get label of interval: 2, 2
-etiquetaFriccion$ =Get label of interval: 2, 3
 
-if etiquetaOclusion$ ="O" or etiquetaOclusion$ ="o"
-	inicioOclusion = Get start time of interval: 2, 2
-	finalOclusion = Get end time of interval: 2, 2
-	duracionOclusion = finalOclusion-inicioOclusion
-else 
-	duracionOclusion = 0
+##########
+##########
+
+if nIntervalosTier2 = 3
+	etiquetaOclusion$ =Get label of interval: 2, 2
+	etiquetaFriccion$ =Get label of interval: 2, 3
 endif
 
-if etiquetaFriccion$ ="F" or etiquetaFriccion$ ="f"
-	inicioFriccion = Get start time of interval: 2, 3
-	finalFriccion = Get end time of interval: 2, 3
-	duracionFriccion = finalFriccion-inicioFriccion
+if nIntervalosTier2 = 4
+
+	if etiquetaOclusion$ ="O" or etiquetaOclusion$ ="o" and etiquetaFriccion$ ="F" or etiquetaFriccion$ ="f"
+		inicioOclusion = Get start time of interval: 2, 2
+		finalOclusion = Get end time of interval: 2, 2
+		duracionOclusion = finalOclusion-inicioOclusion
+		inicioFriccion = Get start time of interval: 2, 3
+		finalFriccion = Get end time of interval: 2, 3
+		duracionFriccion = finalFriccion-inicioFriccion
+	endif
 endif
 
 #porcentaje de oclusión y fricción
