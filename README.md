@@ -1,7 +1,8 @@
+Praat
 ## haska_tesis_2017
 ##
 #################
-## Script para Praat
+## Script para 
 ## Función: Obtiene valores:
 ##  1. Duración de
 ##   a) oclusión
