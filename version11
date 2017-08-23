@@ -96,8 +96,8 @@ etiquetaMarca3_01$ = Get label of point: 1, 3
 
 if nIntervalosTier2 = 3
 	etiquetaFriccion$ =Get label of interval: 2, 3
-			inicioFriccion = Get start time of interval: 2, 3
-			finalFriccion = Get end time of interval: 2, 3
+			inicioFriccion = Get end time of interval: 2, 1
+			finalFriccion = Get end time of interval: 2, 2
 			duracionFriccion = finalFriccion-inicioFriccion
 			duracionOclusion = 0
 
